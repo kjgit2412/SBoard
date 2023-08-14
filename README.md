@@ -8,3 +8,7 @@
 * TDD 설계
 
 ![SBoard 화면 설계](https://github.com/kjgit2412/SBoard/assets/140779367/2fb9c15c-cba7-45ca-8983-76f5b33bbd75)
+
+## Step3
+* SBoard 기본 기능 구현
+* 목록조회, 등록하기, 삭제하기

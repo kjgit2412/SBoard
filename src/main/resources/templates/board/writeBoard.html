@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+
+<main layout:fragment="content">
+    <title th:text="#{write.title}"></title>
+    <h2 th:text="#{write.title}"></h2>
+
+    <form method="post" th:action="@{/board/addBoard}" th:object="${boardField}">
+        <div th:each="err : ${#fields.globalErrors()}" th:text="${err}"></div>
+        <dl>
+            <dt th:text="#{board.poster}"></dt>
+            <dd>
+                <input type="text" name="poster" th:field="*{poster}">
+                <div th:each="err : ${#fields.errors('poster')}" th:text="${err}"></div>
+            </dd>
+        </dl>
+        <dl>
+            <dt th:text="#{board.subject}"></dt>
+            <dd>
+                <input type="text" name="subject" th:field="*{subject}">
+                <div th:each="err : ${#fields.errors('subject')}" th:text="${err}"></div>
+            </dd>
+        </dl>
+        <dl>
+            <dt th:text="#{board.content}"></dt>
+            <dd>
+                <textarea name="content" th:field="*{content}"></textarea>
+                <div th:each="err : ${#fields.errors('content')}" th:text="${err}"></div>
+            </dd>
+        </dl>
+        <button type="submit" th:text="#{button.addBoard}"></button>
+    </form>
+</main>
+</html>

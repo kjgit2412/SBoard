@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -38,4 +39,21 @@ public class ViewService {
                 .build();
     }
 
+    public List<BoardData> getBoardAll() {
+        String sql = "SELECT * FROM BOARD_DATA ORDER BY ID";
+        List<BoardData> items = jdbcTemplate.query(sql, this::mapper);
+        return items;
+    }
+
+    public void deleteBoard(long id) {
+
+        try {
+            String sql = "DELETE FROM BOARD_DATA WHERE ID = ?";
+            BoardData boardData = jdbcTemplate.queryForObject(sql, this::mapper, id);
+
+            return ;
+        } catch (Exception e) {
+            return ;
+        }
+    }
 }

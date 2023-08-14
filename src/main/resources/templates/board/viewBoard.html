@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+
+<main layout:fragment="content" >
+    <title th:text="#{view.title}"></title>
+    <h2 th:text="#{view.title}"></h2>
+
+    <th:block th:object="${data}">
+        <div>
+             <label th:text="#{board.id}"></label>
+             <input type="text" th:value="${id}" readonly>
+        </div>
+        <div>
+            <label th:text="#{board.poster}"></label>
+            <input type="text" th:value="*{poster}" readonly>
+        </div>
+        <div>
+            <label th:text="#{board.subject}"></label>
+            <input type="text" th:value="*{subject}" readonly>
+        </div>
+
+        <div>
+            <label th:text="#{board.regDt}"></label>
+            <input type="text" th:value="*{#temporals.format(regDt, 'yyyy.MM.dd HH:mm')}" readonly>
+        </div>
+        <div>
+            <label th:text="#{board.content}"></label>
+            <input type="text" th:value="*{content}" readonly>
+        </div>
+
+        <br>
+        <br>
+
+        <a th:href="@{/board/updateBoard/{id}(id=${id})}" th:text="#{button.update}"></a>
+        <a th:href="@{/board/delete/{id}(id=${id})}" th:text="#{button.delete}" onclick="return confirm('정말 삭제 하시겠습니까?');"></a>
+        <a th:href="@{/board/boards}" th:text="#{button.boards}"></a>
+
+    </th:block>
+</main>
+</html>
