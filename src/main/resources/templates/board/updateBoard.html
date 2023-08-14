@@ -8,28 +8,35 @@
     <h2 th:text="#{update.title}"></h2>
 
     <th:block th:object="${data}">
-        <div>
+        <dl>
             <label th:text="#{board.id}"></label>
-            <input type="text" th:value="${id}" readonly>
-        </div>
-        <div>
+            <dd>
+                <input type="text" style="width:270px" th:value="${id}" readonly>
+            </dd>
+        </dl>
+        <dl>
             <label th:text="#{board.poster}"></label>
-            <input type="text" th:value="*{poster}" readonly>
-        </div>
-        <div>
+            <dd>
+                <input type="text" style="width:270px" th:value="*{poster}" readonly>
+            </dd>
+        </dl>
+        <dl>
             <label th:text="#{board.subject}"></label>
-            <input type="text" th:value="*{subject}">
-        </div>
-        <div>
+            <dd>
+                <input type="text" style="width:270px" name="subject" th:field="*{subject}" th:value="*{subject}">
+            </dd>
+        </dl>
+
+        <dl>
             <label th:text="#{board.content}"></label>
-            <input type="text" th:value="*{content}">
-        </div>
-
+            <dd>
+                <textarea rows=3 cols=36 name="content" th:field="*{content}" th:value="*{content}"></textarea>
+            </dd>
+        </dl>
         <br>
         <br>
+        <a th:href="@{/board/update}"  th:text="#{button.update}"></a>
 
-<!--        <a th:href="@{/board/update/{id}(id=${id})}"  th:text="#{button.update}"></a>       -->
-        <a th:href="@{/board/writeBoard}"  th:text="#{button.update}"></a>
     </th:block>
 
 </main>

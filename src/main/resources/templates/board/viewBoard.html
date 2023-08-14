@@ -8,33 +8,47 @@
     <h2 th:text="#{view.title}"></h2>
 
     <th:block th:object="${data}">
-        <div>
-             <label th:text="#{board.id}"></label>
-             <input type="text" th:value="${id}" readonly>
-        </div>
-        <div>
+        <dl>
+            <label th:text="#{board.id}"></label>
+            <dd>
+                <input type="text" style="width:270px" th:value="${id}" readonly>
+            </dd>
+        </dl>
+        <dl>
             <label th:text="#{board.poster}"></label>
-            <input type="text" th:value="*{poster}" readonly>
-        </div>
-        <div>
-            <label th:text="#{board.subject}"></label>
-            <input type="text" th:value="*{subject}" readonly>
-        </div>
+            <dd>
+                <input type="text" style="width:270px" th:value="*{poster}" readonly>
+            </dd>
+        </dl>
 
-        <div>
+        <dl>
+            <label th:text="#{board.subject}"></label>
+            <dd>
+                <input type="text" style="width:270px" th:value="*{subject}" readonly>
+            </dd>
+        </dl>
+
+        <dl>
             <label th:text="#{board.regDt}"></label>
-            <input type="text" th:value="*{#temporals.format(regDt, 'yyyy.MM.dd HH:mm')}" readonly>
-        </div>
-        <div>
+            <dd>
+                <input type="text" style="width:270px" th:value="*{#temporals.format(regDt, 'yyyy.MM.dd HH:mm')}" readonly>
+            </dd>
+        </dl>
+
+        <dl>
             <label th:text="#{board.content}"></label>
-            <input type="text" th:value="*{content}" readonly>
-        </div>
+            <dd>
+                <textarea rows=3 cols=36 th:value="*{content}" th:text="*{content}" readonly></textarea>
+            </dd>
+        </dl>
 
         <br>
         <br>
 
         <a th:href="@{/board/updateBoard/{id}(id=${id})}" th:text="#{button.update}"></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a th:href="@{/board/delete/{id}(id=${id})}" th:text="#{button.delete}" onclick="return confirm('정말 삭제 하시겠습니까?');"></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a th:href="@{/board/boards}" th:text="#{button.boards}"></a>
 
     </th:block>

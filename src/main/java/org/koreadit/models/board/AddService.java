@@ -72,14 +72,14 @@ public class AddService implements NullBlankCheck {
         int affectedRows=0;
         String sql = "UPDATE BOARD_DATA " +
                 " SET " +
-                " POSTER = ?, " +
                 " SUBJECT = ?, " +
                 " CONTENT = ?, " +
                 " MODDT = SYSDATE " +
                 " WHERE ID = ?";
 
-        affectedRows = jdbcTemplate.update(sql, boardField.getPoster(),
-                boardField.getSubject(), boardField.getContent(), boardField.getId());
+  //      System.out.println("id : " + boardField.getId() );   // id=0을 들어와서 수정되지 않음
+
+        affectedRows = jdbcTemplate.update(sql,boardField.getSubject(), boardField.getContent(), boardField.getId());
 
         return affectedRows > 0;
     }

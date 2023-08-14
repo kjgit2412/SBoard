@@ -12,24 +12,26 @@
         <dl>
             <dt th:text="#{board.poster}"></dt>
             <dd>
-                <input type="text" name="poster" th:field="*{poster}">
+                <input type="text" style="width:270px" name="poster" th:field="*{poster}">
                 <div th:each="err : ${#fields.errors('poster')}" th:text="${err}"></div>
             </dd>
         </dl>
         <dl>
             <dt th:text="#{board.subject}"></dt>
             <dd>
-                <input type="text" name="subject" th:field="*{subject}">
+                <input type="text" style="width:270px" name="subject" th:field="*{subject}">
                 <div th:each="err : ${#fields.errors('subject')}" th:text="${err}"></div>
             </dd>
         </dl>
         <dl>
             <dt th:text="#{board.content}"></dt>
             <dd>
-                <textarea name="content" th:field="*{content}"></textarea>
+                <textarea rows=3 cols=36 name="content" th:field="*{content}"></textarea>
                 <div th:each="err : ${#fields.errors('content')}" th:text="${err}"></div>
             </dd>
         </dl>
+        <br>
+        <br>
         <button type="submit" th:text="#{button.addBoard}"></button>
     </form>
 </main>

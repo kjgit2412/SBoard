@@ -80,6 +80,7 @@ public class SBoardController {
         return "redirect:/board/boards";
     }
 
+
     // ------------  게시글 수정
 
     @GetMapping("/updateBoard/{id}")
@@ -91,12 +92,13 @@ public class SBoardController {
         return "board/updateBoard";
     }
 
-    @GetMapping("/update/{id}")
-    public String update(@PathVariable long id) {
+    @GetMapping("/update")
+    public String update(BoardField data) {
 
   //      System.out.println("수정");
-  //      addService.update(@ModelAttribute BoardField data);
+        addService.update(data);
 
-      return "redirect:/board/boards";
+        return "redirect:/board/boards";
     }
+
 }
